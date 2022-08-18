@@ -8,7 +8,7 @@ import * as actions from '../../actions';
 
 class BlogFormReview extends Component {
   renderFields() {
-    const { formValues } = this.props;
+    const { formValues } = this.props; // Aqui tomo los formValues de el formulario BlogForm
 
     return _.map(formFields, ({ name, label }) => {
       return (
@@ -21,7 +21,7 @@ class BlogFormReview extends Component {
   }
 
   renderButtons() {
-    const { onCancel } = this.props;
+    const { onCancel } = this.props; // esta prop es pasada por el conponente BlogNew
 
     return (
       <div>
@@ -42,16 +42,16 @@ class BlogFormReview extends Component {
   onSubmit(event) {
     event.preventDefault();
 
-    const { submitBlog, history, formValues } = this.props;
+    const { submitBlog, history, formValues } = this.props; // history viene de react-router-dom creo o de withRouter
 
-    submitBlog(formValues, history);
+    submitBlog(formValues, history); // submitBlog viene de las acciones
   }
 
   render() {
     return (
       <form onSubmit={this.onSubmit.bind(this)}>
         <h5>Please confirm your entries</h5>
-        {this.renderFields()}
+        {this.renderFields()} 
 
         {this.renderButtons()}
       </form>
@@ -59,8 +59,12 @@ class BlogFormReview extends Component {
   }
 }
 
+
+
+
+
 function mapStateToProps(state) {
-  return { formValues: state.form.blogForm.values };
+  return { formValues: state.form.blogForm.values }; // aqui tomo el estado form de reduxForm y lo paso como props a este Componente
 }
 
 export default connect(mapStateToProps, actions)(withRouter(BlogFormReview));

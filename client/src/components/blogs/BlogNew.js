@@ -11,14 +11,14 @@ class BlogNew extends Component {
     if (this.state.showFormReview) {
       return (
         <BlogFormReview
-          onCancel={() => this.setState({ showFormReview: false })}
+          onCancel={() => this.setState({ showFormReview: false })} //pasamedole esta funcion como props
         />
       );
     }
 
     return (
       <BlogForm
-        onBlogSubmit={() => this.setState({ showFormReview: true })}
+        onBlogSubmit={() => this.setState({ showFormReview: true })} //pasamedole esta funcion como props
       />
     );
   }
@@ -33,5 +33,5 @@ class BlogNew extends Component {
 }
 
 export default reduxForm({
-  form: 'blogForm'
+  form: 'blogForm' // si le quito esta linea de codigo cuando le de cancel al formulario y vuelva a abrir el formulario me sale con los valores que habia escrito antes
 })(BlogNew);

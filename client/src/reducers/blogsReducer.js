@@ -6,6 +6,7 @@ export default function(state = {}, action) {
     case FETCH_BLOG:
       const blog = action.payload;
       return { ...state, [blog._id]: blog };
+      
     case FETCH_BLOGS:
       return { ...state, ...mapKeys(action.payload, '_id') };
     default:

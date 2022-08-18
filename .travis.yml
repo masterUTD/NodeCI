@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - "16"
+dist: trusty
+services:
+  - mongodb
+  - redis-server  
+env:
+  - NODE_ENV=ci
+  - PORT=3000
+cache:
+  directories:
+    - node_modules
+    - client/node_modules
+install:
+  - npm install
+  - npm run build
+script:
+  - nohup npm run start &  #don not close the process if the console close , run npm start, and can write or run another process on the same console
+  - sleep 3 # sleep for seconds so the 
+  - npm run test
+
+# when we run npm run start it takes like half second to start so we make sure to sleep for 3 seconds for the server be ready
+#if we run the test suit too soon we must to wait to the server to be ready so we sleep for 3 seconds

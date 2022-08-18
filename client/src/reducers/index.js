@@ -6,5 +6,5 @@ import blogsReducer from './blogsReducer';
 export default combineReducers({
   auth: authReducer,
   form: reduxForm,
-  blogs: blogsReducer
+  blogs: blogsReducer // con el nombre blogs me va a devolver el estado de este reducer
 });

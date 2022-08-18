@@ -6,11 +6,11 @@ import { fetchBlogs } from '../../actions';
 
 class BlogList extends Component {
   componentDidMount() {
-    this.props.fetchBlogs();
+    this.props.fetchBlogs(); // esto viene de las acciones 
   }
 
   renderBlogs() {
-    return map(this.props.blogs, blog => {
+    return map(this.props.blogs, blog => { // esto viene de los estados
       return (
         <div className="card darken-1 horizontal" key={blog._id}>
           <div className="card-stacked">
@@ -36,4 +36,4 @@ function mapStateToProps({ blogs }) {
   return { blogs };
 }
 
-export default connect(mapStateToProps, { fetchBlogs })(BlogList);
+export default connect(mapStateToProps, { fetchBlogs })(BlogList); // primer parametro : estados , segundo parametro acciones

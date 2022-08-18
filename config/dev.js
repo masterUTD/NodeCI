@@ -1,7 +1,8 @@
 module.exports = {
   googleClientID:
-    '70265989829-0t7m7ce5crs6scqd3t0t6g7pv83ncaii.apps.googleusercontent.com',
-  googleClientSecret: '8mkniDQOqacXtlRD3gA4n2az',
-  mongoURI: 'mongodb://readonly:password@ds063124.mlab.com:63124/blog_everyone',
-  cookieKey: '123123123',
+    '130817678423-132u8nqjm2a7411f1o2jndf3hpk348g8.apps.googleusercontent.com',
+  googleClientSecret: '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',
+  mongoURI:`mongodb+srv://MasterUtd:spacebound3187@cluster0.rtu3r.mongodb.net/node-advanced`,
+  cookieKey: 'noonewillknow',
+  redisUrl: 'redis://127.0.0.1:6379'
 };

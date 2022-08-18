@@ -11,7 +11,7 @@ import BlogShow from './blogs/BlogShow';
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetchUser();
+    this.props.fetchUser(); // esta accion golpea a su reducer especifico  y cambia su estado
   }
 
   render() {
