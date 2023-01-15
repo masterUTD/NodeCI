@@ -37,6 +37,7 @@ app.use(passport.session()); // para que passport almacene las sesiones dentro d
 
 require('./routes/authRoutes')(app);
 require('./routes/blogRoutes')(app);
+require('./routes/uploadRoutes')(app);
 
 if (['production', 'ci'].includes(process.env.NODE_ENV)) { // cuando este en produccion
   app.use(express.static('client/build'));

@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 
 class BlogFormReview extends Component {
+  state = { file: null}
   renderFields() {
     const { formValues } = this.props; // Aqui tomo los formValues de el formulario BlogForm
 
@@ -44,7 +45,12 @@ class BlogFormReview extends Component {
 
     const { submitBlog, history, formValues } = this.props; // history viene de react-router-dom creo o de withRouter
 
-    submitBlog(formValues, history); // submitBlog viene de las acciones
+    submitBlog(formValues,this.state.file, history); // submitBlog viene de las acciones
+  }
+
+  onFileChange(event) {
+      this.setState({ file: event.target.files[0] })
+
   }
 
   render() {
@@ -52,6 +58,12 @@ class BlogFormReview extends Component {
       <form onSubmit={this.onSubmit.bind(this)}>
         <h5>Please confirm your entries</h5>
         {this.renderFields()} 
+        <h5>Add a image</h5>
+        <input
+         type = "file" 
+         accept="image/*"
+          onChange={this.onFileChange.bind(this)}
+         />
 
         {this.renderButtons()}
       </form>
@@ -67,4 +79,4 @@ function mapStateToProps(state) {
   return { formValues: state.form.blogForm.values }; // aqui tomo el estado form de reduxForm y lo paso como props a este Componente
 }
 
-export default connect(mapStateToProps, actions)(withRouter(BlogFormReview));
+export default connect(mapStateToProps, actions)(withRouter(BlogFormReview)); // le estamos pasando las acciones as props

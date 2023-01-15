@@ -7,6 +7,14 @@ class BlogShow extends Component {
     this.props.fetchBlog(this.props.match.params._id); // haciendo el fetching de los blogs
   }
 
+  renderImage() {
+    if(this.props.blog.imageUrl) {
+        return <img src={'https://my-personal-blog-bucket-unique.s3.sa-east-1.amazonaws.com/'+ this.props.blog.imageUrl} />
+
+    }
+
+  }
+
   render() {
     if (!this.props.blog) {  // return { blog: blogs[ownProps.match.params._id] };
       return '';
@@ -18,6 +26,7 @@ class BlogShow extends Component {
       <div>
         <h3>{title}</h3>
         <p>{content}</p>
+        {this.renderImage()}
       </div>
     );
   }
